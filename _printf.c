@@ -2,12 +2,16 @@
 
 int _printf(const char *format)
 {
-  unsigned int nb_bytes = 0;
-
-
-while (format[nb_bytes] != '\0')
+  unsigned int str_len = 0;
+  //unsigned int cursor = 0;
+  char *ptr = "z";
+while (format[str_len] != '\0')
 {
-  nb_bytes++;
+  if ((format[str_len]=='%') && (format[str_len+1]=='c'))
+  {
+    write(1,ptr,1);
+  }
+  str_len++;
 }
 
 
@@ -20,7 +24,7 @@ while (format[nb_bytes] != '\0')
   * 2	stderr
   */
 
-  write(1,format,nb_bytes);
+  write(1,format,str_len);
   
   return (0);
 
@@ -28,5 +32,5 @@ while (format[nb_bytes] != '\0')
 
 int main()
 {
-  _printf("Mon premier test");
+  _printf("Mon premier%c test");
 }
