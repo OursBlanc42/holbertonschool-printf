@@ -2,9 +2,15 @@
 
 int _printf(const char *format)
 {
-  unsigned int nb_bytes = 3;
-  
-  /** calculate here the length **/
+  unsigned int nb_bytes = 0;
+
+
+while (format[nb_bytes] != '\0')
+{
+  nb_bytes++;
+}
+
+
 
   /** Write function to display text. We use this syntax :
   * int write(int fileDescriptor, void *buffer, size_t bytesToWrite)
