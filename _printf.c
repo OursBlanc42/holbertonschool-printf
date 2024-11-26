@@ -13,8 +13,11 @@ void print_string(va_list args) /* TODO : adapt print_char function */
 }
 
 void print_percent(va_list args)    /* TODO : adapt print_char function */
-{   /* code below is wrong, will be corected in futur */
-  printf("%d", va_arg(args, int));
+{   
+  (void)args; /*Ignore the arguments because % does not take any*/
+  int ascii_value = 37; /* Stock the ascii value of % */
+  int *ptr = &ascii_value; /* Create a pointer to the integer value */
+  write(1, ptr, 1); /*write % */
 }
 
 /**
