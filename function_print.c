@@ -32,3 +32,11 @@ void print_char(va_list args)
   write(1,ptr,1); /* write the char */
   free(ptr); /* free memory */
 }
+
+void print_percent(va_list args)    /* TODO : adapt print_char function */
+{   
+  (void)args; /*Ignore the arguments because % does not take any*/
+  int ascii_value = 37; /* Stock the ascii value of % */
+  int *ptr = &ascii_value; /* Create a pointer to the integer value */
+  write(1, ptr, 1); /*write % */
+}

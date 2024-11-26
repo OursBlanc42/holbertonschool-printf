@@ -4,21 +4,6 @@
 #include <stdlib.h> /* malloc et free */
 #include "main.h" /*prototype of function*/
 
-/* Define function for each type */
-
-
-void print_string(va_list args) /* TODO : adapt print_char function */
-{   /* code below is wrong, will be corected in futur */
-  printf("%d", va_arg(args, int));
-}
-
-void print_percent(va_list args)    /* TODO : adapt print_char function */
-{   
-  (void)args; /*Ignore the arguments because % does not take any*/
-  int ascii_value = 37; /* Stock the ascii value of % */
-  int *ptr = &ascii_value; /* Create a pointer to the integer value */
-  write(1, ptr, 1); /*write % */
-}
 
 /**
  * _printf - Emulate printf function
@@ -89,11 +74,4 @@ int _printf(const char * format, ...)
 
   va_end(args); /* Ends the use of the list */
   return(0);
-}
-
-int main()
-{
-  _printf("b majuscule : %c et d majuscule : %c \n", 'B', 'D');
-  _printf("%c%c",'E','F');
-    return (0);
 }
