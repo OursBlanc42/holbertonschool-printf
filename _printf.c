@@ -2,6 +2,7 @@
 #include <stdio.h> /* to test with real printf */
 #include <unistd.h> /* to use write function*/
 #include <stdlib.h> /* malloc et free */
+#include "main.h" /*prototype of function*/
 
 /* Define function for each type */
 
@@ -40,7 +41,7 @@ int _printf(const char * format, ...)
     unsigned int cursor = 0;
   unsigned int p_cursor = 0;
   /* Correspondance table (type specifier and corresponding func) */
-  char types[] = { 'c', 'f', '%', '\0' };
+  char types[] = { 'c', 's', '%', '\0' };
   /* Array of function pointers, each expecting a va_list argument */
   void (*print_func[])(va_list) = {
     print_char,		/* Prints a char */
