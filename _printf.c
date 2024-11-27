@@ -31,6 +31,7 @@ int comp_char(char letter, va_list args)
 		}
 		j++; /* increment J for while loop */
 	}
+	return (count);
 }
 
 /**
