@@ -4,7 +4,6 @@
 #include <stdlib.h> /* malloc et free */
 #include "main.h" /*prototype of function*/
 
-
 /**
  * _printf - Emulate printf function
  * Description : _printf display string with specified format (see exemple) 
@@ -27,11 +26,9 @@ int _printf(const char * format, ...)
     {'\0',NULL}
   };
 
-  va_list args; /* Arguments list declaration */
+	va_list args; /* Arguments list declaration */
 
-  va_start(args, format); /* Initialize list with fixed arguments */
-
-
+	va_start(args, format); /* Initialize list with fixed arguments */
 
   /* Loop through format until end */
   while (format[cursor] != '\0')
@@ -63,14 +60,14 @@ int _printf(const char * format, ...)
       cursor++;
     }
 
-  }
+	}
 
-  /* if cursor found last character */
-  if (format[cursor]=='\0')
-  {  /* display the rest */
-    write(1,&format[p_cursor],(cursor-p_cursor));
-  }
+	/* if cursor found last character */
+	if (format[cursor] == '\0')
+	{  /* display the rest */
+	write(1, &format[p_cursor], (cursor - p_cursor));
+	}
 
-  va_end(args); /* Ends the use of the list */
-  return(0);
-}
+	va_end(args); /* Ends the use of the list */
+	return (0);
+	}
