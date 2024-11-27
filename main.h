@@ -2,18 +2,18 @@
 #define MAIN_H
 #include <stdarg.h>
 
-int _printf(const char * format, ...);
-
 /**
- * struct print_function - structure for choose the good function
+ * struct struct_print - structure for choose the good function
  *@type: char for selection of goood function
  *@func: pointer of function
  */
-typedef struct print_function
+typedef struct struct_print
 {
 	char type;
-	int (*func)(va_list args);
-};
+	void (*func)(va_list args);
+} print_function;
+
+int _printf(const char * format, ...);
 
 int _putchar(char c);
 
@@ -22,7 +22,5 @@ void print_percent(va_list args);
 void print_string(va_list args);
 
 void print_char(va_list args);
-
-
 
 #endif
