@@ -11,6 +11,12 @@ int main(void)
 {
 	char *str_null = NULL;
 
+<<<<<<< HEAD
+=======
+	int len1 = 0;
+	int len2 = 0;
+
+>>>>>>> add_count
 	printf("printf\t test 1 : b majuscule : %c et d majuscule : %c \n", 'B', 'D');
 	_printf("_printf\t test 1 : b majuscule : %c et d majuscule : %c \n", 'B', 'D');
 
@@ -82,6 +88,31 @@ int main(void)
 
 	printf("printf\t test 19 : Mélange complexe %s (vide), ASCII 65 : %c, NULL : %s, spéciaux : [%c|%c|%c]\n", "", 65, str_null, '\n', '\t', '\\');
 	_printf("_printf\t test 19 : Mélange complexe %s (vide), ASCII 65 : %c, NULL : %s, spéciaux : [%c|%c|%c]\n", "", 65, str_null, '\n', '\t', '\\');
+
+	printf("CALCUL DES LONGUEURS A \n");
+	len1 = printf("printf\t test A20 : Test des longueurs de chaine\n");
+	len2 = _printf("_printf\t test A20 : Test des longueurs de chaine\n");
+	printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+	printf("CALCUL DES LONGUEURS B \n");
+	len1 = printf("vrai printf\t test B21 : Test des longueurs de chaine ave une string simple : %s \n","Je suis une string simple !"); 
+	len2 = _printf("holb printf\t test B21 : Test des longueurs de chaine ave une string simple : %s \n","Je suis une string simple !"); 
+	printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+	printf("CALCUL DES LONGUEURS C \n");
+	len1 = printf("vrai printf\t test C22 : char : %c \n",'A'); 
+	len2 = _printf("holb printf\t test C22 : char : %c \n",'A'); 
+	printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+	printf("CALCUL DES LONGUEURS D \n");
+	len1 = printf("vrai printf\t test D23 : char x2 : %c et %c \n",'A','B'); 
+	len2 = _printf("holb printf\t test D23 : char x2 : %c et %c \n",'A','B'); 
+	printf("len printf = %d && len _printf = %d\n", len1, len2);
+	
+	printf("CALCUL DES LONGUEURS D \n");
+	len1 = printf("vrai printf\t test D23 : string : %s et un char %c et encore un autre %c \n","Hello World", 'A','B'); 
+	len2 = _printf("holb printf\t test D23 : string : %s et un char %c et encore un autre %c \n","Hello World", 'A','B'); 
+	printf("len printf = %d && len _printf = %d\n", len1, len2);
 
 	return (0);
 }
