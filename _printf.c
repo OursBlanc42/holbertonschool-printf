@@ -19,14 +19,13 @@ int _printf(const char * format, ...)
   int j;
     unsigned int cursor = 0;
   unsigned int p_cursor = 0;
-  /* Correspondance table (type specifier and corresponding func) */
-  char types[] = { 'c', 's', '%', '\0' };
-  /* Array of function pointers, each expecting a va_list argument */
-  void (*print_func[])(va_list) = {
-    print_char,		/* Prints a char */
-    print_string,	/* Prints a string */
-    print_percent  /* Prints a percent */
-    };
+  /*Array of structure associate a type with the corresponding func*/
+  print_function fucntion_search[] = {
+    {'c', print_char},  /* Prints a char */
+    {'s', print_string},  /* Prints a string */
+    {'%', print_percent}, /* Prints a percent */
+    {'\0',NULL}
+  };
 
   va_list args; /* Arguments list declaration */
 
@@ -45,11 +44,11 @@ int _printf(const char * format, ...)
 
      /* check if followed character is on the type list */
       j = 0; /* initialize J to start the type list at the begining */
-      while (types[j] != '\0')
+      while (fucntion_search[j].type != '\0')
       {
-        if (format[cursor+1] == types[j])
+        if (format[cursor+1] == fucntion_search[j].type)
         {  /* call associated function */
-          print_func[j](args);
+          fucntion_search[j].func(args);
           break; /* Exit loop after finding match */
         }
         j++; /* increment J for while loop */
