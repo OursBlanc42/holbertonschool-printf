@@ -1,42 +1,59 @@
 #include "main.h"
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
+
 
 /**
  * print_string - print a string
- *@args: arg receive for print the string
+ * @args: arg receive for print the string
+ * Return: The length of the printed string
  */
-void print_string(va_list args)
+int print_string(va_list args)
 {
-	int i = 0;
-	char *ptr;
+	/* Declare and initialize variable */
+	int counter = 0;
+	/* catch the string in a pointer */
+	char *str = va_arg(args, char *);
 
-	ptr = args;
-	while (ptr[i] != '\0')
+	if (str == NULL)
 	{
-		i++;
+		/* Replace NULL with “(null)”. */
+		str = "(null)";
 	}
-	write(1, ptr, i);
+	/* loop char by char */
+	while (str[counter] != '\0')
+	{	/* display each char */
+		write(1, &str[counter], 1);
+		counter++;
+	}
+	return (counter);
 }
 
 /**
  * print_char - print a char
- *@args: arg receive for print the char
+ * @args: arg receive for print the char
+ * Return: The length of the char (= 1)
  */
-void print_char(va_list args)
-{ /* char arguments are promoted to int in variadic function */
-  /* so va_arg must use int to retrieve them. */
-	int *ptr = NULL;  /* declare NULL pointer */
-  ptr = malloc(sizeof(char)); /* define size for one char */
-  *ptr = va_arg(args, int); /* write the args in ptr (see top comments to see why is "int")*/
-  write(1,ptr,1); /* write the char */
-  free(ptr); /* free memory */
+int print_char(va_list args)
+{
+	/* declare and initialize variable */
+	char c;
+	/* char arguments are promoted to int in variadic function */
+	/* so va_arg must use int to retrieve them. */
+	/* declare C as a conversion of va_args int () */
+	c = (char)va_arg(args, int);
+	write(1, &c, 1); /* write the char */
+	return (1); /* return length of one char */
 }
 
-void print_percent(va_list args)    /* TODO : adapt print_char function */
-{   
-  (void)args; /*Ignore the arguments because % does not take any*/
-  int ascii_value = 37; /* Stock the ascii value of % */
-  int *ptr = &ascii_value; /* Create a pointer to the integer value */
-  write(1, ptr, 1); /*write % */
+/**
+ * print_percent - print a percent symbol (%)
+ * @args: arg recieved but not used (same structure than other functions)
+ * Return: The length of the symbol percent (%) (= 1)
+ */
+int print_percent(va_list args)
+{
+	(void)(args);
+	return (1);
 }

@@ -13,7 +13,7 @@
 int comp_char(char letter, va_list args)
 {
   /*Array of structure associate a type with the corresponding func*/
-	print_function fucntion_search[] = {
+	print_function function_search[] = {
 	{'c', print_char},  /* Prints a char */
 	{'s', print_string},  /* Prints a string */
 	{'%', print_percent}, /* Prints a percent */
@@ -22,11 +22,12 @@ int comp_char(char letter, va_list args)
 	int j = 0; /*Declare and initialize j*/
 	int count = 0;
 
-	while (fucntion_search[j].type != '\0')
+	while (function_search[j].type != '\0')
 	{
-		if (letter == fucntion_search[j].type)
+		if (letter == function_search[j].type)
 		{  /* call associated function */
-			count += fucntion_search[j].func(args) - 2;
+			/* -2 to consider the %X we don't actually write*/
+			count += function_search[j].func(args) - 2;
 			break; /* Exit loop after finding match */
 		}
 		j++; /* increment J for while loop */
@@ -60,7 +61,7 @@ int _printf(const char *format, ...)
 			/* if % is detected : print until cursor */
 			write(1, &format[p_cursor], (cursor - p_cursor));
 			/* check if followed character is on the type list */
-			count_function = (format[cursor + 1], args);
+			count_function += comp_char(format[cursor + 1], args);
 			cursor = cursor + 2;  /* update cursor to skip ''%X' */
 			p_cursor = cursor;  /* update p_cursor */
 		}
@@ -76,4 +77,4 @@ int _printf(const char *format, ...)
 	}
 	va_end(args); /* Ends the use of the list */
 	return (cursor + count_function); /*Return count of format + count char add*/
-	}
+}
