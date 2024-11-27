@@ -4,34 +4,48 @@
 
 /**
  * print_string - print a string
- *@args: arg receive for print the string
+ * @args: arg receive for print the string
+ * Return : The length of the printed string
  */
 void print_string(va_list args)
-{
+{	
+	/* Declare and initialize variable */
 	int i = 0;
-	char *ptr;
+	int counter = 0;
+	/* catch the string in a pointer */
+	char *str = va_arg(args, char *);
 
-	ptr = args;
-	while (ptr[i] != '\0')
-	{
+	if (str == NULL)
+	{	
+		/* Replace NULL with “(nil)”. */
+		str = "(null)";
+	}
+	/* loop char by char */
+	while (str[i] != '\0')
+	{	/* display each char */
+		write(1, &str[i], 1);
+		counter++; 
 		i++;
 	}
-	write(1, ptr, i);
+	
+	/*return (counter);*/
 }
 
 /**
  * print_char - print a char
- *@args: arg receive for print the char
+ * @args: arg receive for print the char
+ * Return : Void (but in future : int )
  */
 void print_char(va_list args)
-{ /* char arguments are promoted to int in variadic function */
-  /* so va_arg must use int to retrieve them. */
+	{ /* char arguments are promoted to int in variadic function */
+	/* so va_arg must use int to retrieve them. */
 	int *ptr = NULL;  /* declare NULL pointer */
-  ptr = malloc(sizeof(char)); /* define size for one char */
-  *ptr = va_arg(args, int); /* write the args in ptr (see top comments to see why is "int")*/
-  write(1,ptr,1); /* write the char */
-  free(ptr); /* free memory */
-}
+	ptr = malloc(sizeof(char)); /* define size for one char */
+	/* write the args in ptr (see previous comments to see why is "int")*/
+	*ptr = va_arg(args, int); 
+	write(1,ptr,1); /* write the char */
+	free(ptr); /* free memory */
+	}
 
 void print_percent(va_list args)    /* TODO : adapt print_char function */
 {   
