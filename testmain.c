@@ -38,8 +38,8 @@ int main(void)
 	printf("printf\t test 3 : pourcent %% \n");
 	_printf("_printf\t test 3 : pourcent %% \n");
 
-	printf("printf\t test 4 : 3 symbole pourcent %%% \n");
-	_printf("_printf\t test 4 : 3 symbole pourcent %%% \n");
+	printf("printf\t test 4 : 3 symbole pourcent Cas annulé pour éviter warning GCC \n");
+	_printf("_printf\t test 4 : 3 symbole pourcent Cas annulé pour éviter warning GCC \n");
 
 	printf("printf\t test 5 : 4 symboles pourcent %%%% \n");
 	_printf("_printf\t test 5 : 4 symboles pourcent %%%% \n");
@@ -47,8 +47,8 @@ int main(void)
 	printf("printf\t test 6 : 8 symboles pourcent %%%%%%%% \n");
 	_printf("_printf\t test 6 : 8 symboles pourcent %%%%%%%% \n");
 
-	printf("printf\t test 7 : 15 symboles pourcent %%%%%%%%%%%%%%% \n");
-	_printf("_printf\t test 7 : 15 symboles pourcent %%%%%%%%%%%%%%% \n");
+	printf("printf\t test 7 : 15 symboles pourcent Cas annulé pour éviter warning GCC \n");
+	_printf("_printf\t test 7 : 15 symboles pourcent Cas annulé pour éviter warning GCC \n");
 
 	printf("printf\t test 8 : pourcent début %% milieu %% fin %%\n");
 	printf("_printf\t test 8 : pourcent début %% milieu %% fin %%\n");
@@ -62,8 +62,8 @@ int main(void)
 	printf("printf\t test 11 : mix de pourcent et char tout collé à la suite x2 : %%%c%%%c  \n",'Z','y');
 	_printf("_printf\t test 11 : mix de pourcent et char tout collé à la suite x2 : %%%c%%%c \n",'Z','y');
 
-	printf("printf\t test 12 : Pourcent malformé (1 seul symbole) : % \n"); 
-	_printf("_printf\t test 12 : Pourcent malformé  (1 seul symbole) : % \n");
+	printf("printf\t test 12 : Pourcent malformé (1 seul symbole) : Cas annulé pour éviter warning GCC \n"); 
+	_printf("_printf\t test 12 : Pourcent malformé  (1 seul symbole) : Cas annulé pour éviter warning GCC \n");
 
 	printf("printf\t test 13 : Une string simple : %s \n","Je suis une string simple !"); 
 	_printf("_printf\t test 13 : Une string simple : %s \n","Je suis une string simple !"); 
@@ -86,6 +86,8 @@ int main(void)
 	printf("printf\t test 19 : Mélange complexe %s (vide), ASCII 65 : %c, NULL : %s, spéciaux : [%c|%c|%c]\n", "", 65, str_null, '\n', '\t', '\\');
 	_printf("_printf\t test 19 : Mélange complexe %s (vide), ASCII 65 : %c, NULL : %s, spéciaux : [%c|%c|%c]\n", "", 65, str_null, '\n', '\t', '\\');
 
+	printf("\n#################################\n");
+
 	printf("CALCUL DES LONGUEURS A \n");
 	len1 = printf("vrai printf\t test A20 : Test des longueurs de chaine\n");
 	len2 = _printf("holb printf\t test A20 : Test des longueurs de chaine\n");
@@ -106,9 +108,14 @@ int main(void)
 	len2 = _printf("holb printf\t test D23 : char x2 : %c et %c \n",'A','B'); 
 	printf("len printf = %d && len _printf = %d\n", len1, len2);
 	
-	printf("CALCUL DES LONGUEURS D \n");
-	len1 = printf("vrai printf\t test D23 : string : %s et un char %c et encore un autre %c \n","Hello World", 'A','B'); 
-	len2 = _printf("holb printf\t test D23 : string : %s et un char %c et encore un autre %c \n","Hello World", 'A','B'); 
+	printf("CALCUL DES LONGUEURS E \n");
+	len1 = printf("vrai printf\t test E24 : string : %s et char %c et char %c et puis int négatif %d (d positif), %i (i négatif), %d (zéro) \n","Hello World", 'A','B',1991,-42,0); 
+	len2 = printf("holb printf\t test E24 : string : %s et char %c et char %c et puis int négatif %d (d positif), %i (i négatif), %d (zéro) \n","Hello World", 'A','B',1991,-42,0); 
+	printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+	printf("CALCUL DES LONGUEURS F \n");
+	len1 = printf("vrai printf\t test F23 : string : %s et char %c et char %c et puis int négatif %d (d positif), %i (i négatif), %d (zéro) \n","Hello World", 'A','B',1991,-42,0); 
+	len2 = printf("holb printf\t test F23 : string : %s et char %c et char %c et puis int négatif %d (d positif), %i (i négatif), %d (zéro) \n","Hello World", 'A','B',1991,-42,0); 
 	printf("len printf = %d && len _printf = %d\n", len1, len2);
 
 	return (0);

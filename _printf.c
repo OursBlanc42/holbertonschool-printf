@@ -17,6 +17,8 @@ int comp_char(char letter, va_list args)
 	{'c', print_char},  /* Prints a char */
 	{'s', print_string},  /* Prints a string */
 	{'%', print_percent}, /* Prints a percent */
+	{'i', print_integer}, /* Prints a integer (i key letter) */
+	{'d', print_integer}, /* Prints a integer (d key letter) */
 	{'\0', NULL}
 	};
 	int j = 0; /*Declare and initialize j*/
