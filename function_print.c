@@ -54,6 +54,7 @@ int print_char(va_list args)
  */
 int print_percent(va_list args)
 {
-	(void)(args);
-	return (1);
+	(void)(args);	/*because no args used*/
+	write(1, "%", 1);	/*write the percent*/
+	return (1);	/*return lenght of one char*/
 }
