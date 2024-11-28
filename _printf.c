@@ -1,5 +1,4 @@
 #include <stdarg.h> /* to use variadic arguments */
-#include <stdio.h> /* to test with real printf */
 #include <unistd.h> /* to use write function*/
 #include <stdlib.h> /* malloc et free */
 #include "main.h" /*prototype of function*/
