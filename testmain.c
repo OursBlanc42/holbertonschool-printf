@@ -11,12 +11,9 @@ int main(void)
 {
 	char *str_null = NULL;
 
-<<<<<<< HEAD
-=======
 	int len1 = 0;
 	int len2 = 0;
 
->>>>>>> add_count
 	printf("printf\t test 1 : b majuscule : %c et d majuscule : %c \n", 'B', 'D');
 	_printf("_printf\t test 1 : b majuscule : %c et d majuscule : %c \n", 'B', 'D');
 
