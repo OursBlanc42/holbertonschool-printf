@@ -113,9 +113,52 @@ int main(void)
 	len2 = printf("holb printf\t test E24 : string : %s et char %c et char %c et puis int négatif %d (d positif), %i (i négatif), %d (zéro) \n","Hello World", 'A','B',1991,-42,0); 
 	printf("len printf = %d && len _printf = %d\n", len1, len2);
 
-	printf("CALCUL DES LONGUEURS F \n");
-	len1 = printf("vrai printf\t test F23 : string : %s et char %c et char %c et puis int négatif %d (d positif), %i (i négatif), %d (zéro) \n","Hello World", 'A','B',1991,-42,0); 
-	len2 = printf("holb printf\t test F23 : string : %s et char %c et char %c et puis int négatif %d (d positif), %i (i négatif), %d (zéro) \n","Hello World", 'A','B',1991,-42,0); 
+	printf("\n#################################\n");
+	printf("Essais avec %%d \n");
+
+	printf("printf\t test d-1 : Positif %d négatif %d zéro %d : \n",42,-42,0);
+	_printf("_printf\t test d-1 : Positif %d négatif %d zéro %d : \n",42,-42,0);
+	
+	printf("printf\t test d-2 : INT MAX = %d // INT MIN = %d\n", INT_MAX, INT_MIN);
+	_printf("_printf\t test d-2 : INT MAX = %d // INT MIN = %d\n", INT_MAX, INT_MIN);
+
+	printf("printf\t test d-3 : Double pourcent avant %%d : Hello %d\n", 42);
+	_printf("_printf\t test d-3 : Double pourcent avant %%d : Hello %d\n", 42);
+
+	printf("printf\t test d-4 : Double pourcent aprés %d : Hello %%d\n", 42);
+	_printf("_printf\t test d-4 : Double pourcent aprés %d : Hello %%d\n", 42);
+
+	printf("printf\t test d-5 : Plusieurs %%d à la suite : %d %d %d %d %d\n",0,2,4,8,16);
+	_printf("_printf\t test d-5 : Plusieurs %%d à la suite : %d %d %d %d %d\n",0,2,4,8,16);
+
+	printf("printf\t test d-6 : Un caractére (A) en tant que paramétre %d\n", 'A');
+	_printf("_printf\t test d-6 : Un caractére (A) en tant que paramétre %d\n", 'A');
+
+	printf("\n#################################\n");
+	printf("Essais avec %%i \n");
+
+	printf("printf\t test d-1 : Positif %i négatif %i zéro %i : \n",42,-42,0);
+	_printf("_printf\t test d-1 : Positif %i négatif %i zéro %i : \n",42,-42,0);
+	
+	printf("printf\t test d-2 : INT MAX = %i // INT MIN = %i\n", INT_MAX, INT_MIN);
+	_printf("_printf\t test d-2 : INT MAX = %i // INT MIN = %i\n", INT_MAX, INT_MIN);
+
+	printf("printf\t test d-3 : Double pourcent avant %%i : Hello %i\n", 42);
+	_printf("_printf\t test d-3 : Double pourcent avant %%i : Hello %i\n", 42);
+
+	printf("printf\t test d-4 : Double pourcent aprés %i : Hello %%i\n", 42);
+	_printf("_printf\t test d-4 : Double pourcent aprés %i : Hello %%i\n", 42);
+
+	printf("printf\t test d-5 : Plusieurs %%i à la suite : %i %i %i %i %i\n",0,2,4,8,16);
+	_printf("_printf\t test d-5 : Plusieurs %%i à la suite : %i %i %i %i %i\n",0,2,4,8,16);
+
+	printf("printf\t test d-6 : Un caractére (A) en tant que paramétre %i\n", 'A');
+	_printf("_printf\t test d-6 : Un caractére (A) en tant que paramétre %i\n", 'A');
+
+	printf("\n#################################\n");
+	printf("\n SUPER CAS EXTRME OF THE DEAD AVEC CALCUL DES LONGUEURS : \n");
+	len1 = printf("vrai printf\t Test extrême : Caractère : %c, Chaîne : %s, Pourcentage : %%, Entier (%%i) : %i, Entier (%%d) : %d\n",'A', "Hello, world!", -12345, 67890);
+	len2 = _printf("vrai printf\t Test extrême : Caractère : %c, Chaîne : %s, Pourcentage : %%, Entier (%%i) : %i, Entier (%%d) : %d\n",'A', "Hello, world!", -12345, 67890);
 	printf("len printf = %d && len _printf = %d\n", len1, len2);
 
 	return (0);
