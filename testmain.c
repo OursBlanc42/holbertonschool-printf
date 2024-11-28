@@ -87,8 +87,8 @@ int main(void)
 	_printf("_printf\t test 19 : Mélange complexe %s (vide), ASCII 65 : %c, NULL : %s, spéciaux : [%c|%c|%c]\n", "", 65, str_null, '\n', '\t', '\\');
 
 	printf("CALCUL DES LONGUEURS A \n");
-	len1 = printf("printf\t test A20 : Test des longueurs de chaine\n");
-	len2 = _printf("_printf\t test A20 : Test des longueurs de chaine\n");
+	len1 = printf("vrai printf\t test A20 : Test des longueurs de chaine\n");
+	len2 = _printf("holb printf\t test A20 : Test des longueurs de chaine\n");
 	printf("len printf = %d && len _printf = %d\n", len1, len2);
 
 	printf("CALCUL DES LONGUEURS B \n");
