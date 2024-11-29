@@ -33,6 +33,11 @@ int comp_char(char letter, va_list args)
 		}
 		j++; /* increment J for while loop */
 	}
+	if (function_search[j].type == '\0')
+	{
+		write(1, "%", 2);
+		write(1, &letter, 1);
+	}
 	return (count);
 }
 
