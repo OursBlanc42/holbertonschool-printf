@@ -1,0 +1,73 @@
+.TH man 3 "11 Nov 2024" "1.0" "_printf"
+
+.SH NAME
+.B _printf
+- a function to print a string
+
+.SH SYNOPSIS
+.B #include 
+"main.h"
+.B int _printf
+(const char *format, ...);
+
+.SH DESCRIPTION
+This function 
+.B_printf() 
+produce output according to a format. The function write output to 
+.I stdout.
+
+.SP
+
+This function write the output under the control of a 
+.I format
+string that specifies how subsequent argument are converted for output.
+(Arguments accessed via the variable length argument facilities of 
+.I stdarg(3)).
+
+.SP
+
+.SS Conversion specifiers
+
+The character % following by a character that specifies the type of conversion
+applied. The conversion specifier and their meanings are:
+
+.SP
+.B c
+The int argument is converted to a 
+.BI char 
+and the resulting character is written.
+
+.SP
+.B s
+
+.SP
+.B %
+
+.SP
+.B i, d
+
+.SH RETURN VALUE
+Upon successful return, these functions return the number of 
+bytes printed (excluding the null byte used to end output to
+strings).
+
+.SH EXAMPLES
+To print a string:
+.SP
+#include "main.h"
+
+char *str = "World";
+
+_printf("Hello %s", str);
+
+To print Hello World
+
+.SH SEE ALSO
+printf(1), printf(3), asprintf(3), puts(3), scanf(3), 
+setlocale(3), strfromd(3), wcrtomb(3), wprintf(3), locale(5)
+
+.SH BUGS
+No known bugs.
+
+.SH AUTHORS
+REGNIER Simon, PIERRE Matthieu and JULIEN Damien
