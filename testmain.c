@@ -161,5 +161,86 @@ int main(void)
 	len2 = _printf("vrai printf\t Test extrême : Caractère : %c, Chaîne : %s, Pourcentage : %%, Entier (%%i) : %i, Entier (%%d) : %d\n",'A', "Hello, world!", -12345, 67890);
 	printf("len printf = %d && len _printf = %d\n", len1, len2);
 
+	printf("\n ### CAS REPRIS DE L'EXO HBTN ### \n");
+    _printf("Character:[%c]\n", 'H');
+    printf("Character:[%c]\n", 'H');
+    _printf("String:[%s]\n", "I am a string !");
+    printf("String:[%s]\n", "I am a string !");
+    len1 = _printf("Percent:[%%]\n");
+    len2 = printf("Percent:[%%]\n");
+
+    printf("\n### TEST 1 ###\n");
+    len1 = printf("%c", '\0');
+    len2 = _printf("%c", '\0');
+    printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+    printf("\n### TEST 2 ###\n");
+    len1 = printf("%s", (char *)NULL);
+    len2 = _printf("%s", (char *)NULL);
+    printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+    printf("\n### TEST 3 ###\n");
+    len1 = printf("%c", '%');
+    len2 = _printf("%c", '%');
+	printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+    printf("\n### TEST 4 ###\n");
+    len1 = printf("%s", "Hello\nWorld\t\n");
+    len2 = _printf("%s", "Hello\nWorld\t\n");
+    printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+    printf("\n### TEST 5 ###\n");
+    len1 = printf("%%%%%%");
+    len2 = _printf("%%%%%%");
+    printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+    printf("\n### TEST 6 ###\n");
+    len1 = printf("%c%s%%%c\n", '\0', "Hello\nWorld\t!", 'A');
+    len2 = _printf("%c%s%%%c\n", '\0', "Hello\nWorld\t!", 'A');
+    printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+    printf("\n### TEST 7 ###\n");
+    len1 = printf("");
+    len2 = _printf("");
+    printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+    printf("\n### TEST 8 ###\n");
+    len1 = printf("     ");
+    len2 = _printf("     ");
+    printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+    printf("\n### TEST 9 ###\n");
+    len1 = printf("\n\n\n\n\n");
+    len2 = _printf("\n\n\n\n\n");
+    printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+    printf("\n### TEST 10 ###\n");
+    len1 = printf("\t\t\t\t\t");
+    len2 = _printf("\t\t\t\t\t");
+    printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+	printf("\n### TEST 11 ###\n");
+    len1 = printf("vrai printf : blabla %~");
+	printf("\n");
+    len2 = _printf("holb printf : blabla %~");
+	printf("\n");
+    printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+	printf("\n### TEST 12 ###\n");
+    len1 = printf("vrai printf : blabla %~ \n",1235);
+    len2 = _printf("holb printf : blabla %~ \n",1235);
+    printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+	printf("\n### TEST 13 ###\n");
+    len1 = printf("vrai printf : blabla %% \n",1235);
+    len2 = _printf("holb printf : blabla %% \n",1235);
+    printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+	printf("\n### TEST 14 ###\n");
+    len1 = printf("vrai printf : blabla %%% \n");
+    len2 = _printf("holb printf : blabla %%% \n");
+    printf("len printf = %d && len _printf = %d\n", len1, len2);
+
+
 	return (0);
 }
