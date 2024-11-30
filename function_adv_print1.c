@@ -47,3 +47,9 @@ int print_binary(va_list args)
 
 	return (length);
 }
+
+/* Create this function just for testing gitflow (should be update)*/
+int print_octal(va_list args)
+{
+	(void)(args);	
+}
